@@ -1,7 +1,7 @@
 #!/bin/bash
 # Create samba server and different configuration options
-SHAREDDIR="/myshare1"
 # User inputs
+SHAREDDIR="/myshare1"
 
 
 # End of user inputs
