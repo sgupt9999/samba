@@ -15,6 +15,7 @@ PASSWORD2="redhat2"
 # End of user inputs
 
 
+
 if [[ $EUID != 0 ]] 
 then
 	echo "Error. you need to have root privileges to run this script"
