@@ -59,21 +59,21 @@ echo "Installing packages......."
 yum install -y -q -e0 $PACKAGES
 echo "Done"
 
-groupdel $GROUP1
+groupdel $GROUP1 > /dev/null 2>&1
 groupadd -g $GID1 $GROUP1
-userdel -fr $USER1
+userdel -fr $USER1 > /dev/null 2>&1
 useradd -u $UID1 $USER1 -G $GROUP1
 smbpasswd -x $USER1 > /dev/null 2>&1
 (echo $PASSWORD1; echo $PASSWORD1) | smbpasswd -a -s $USER1 > /dev/null 2>&1
-userdel -fr $USER2
+userdel -fr $USER2 > /dev/null 2>&1
 useradd -u $UID2 $USER2
 smbpasswd -x $USER2 > /dev/null 2>&1
 (echo $PASSWORD2; echo $PASSWORD2) | smbpasswd -a -s $USER2 > /dev/null 2>&1
-userdel -fr $USER3
+userdel -fr $USER3 > /dev/null 2>&1
 useradd -u $UID3 $USER3 -G $GROUP1
 smbpasswd -x $USER3 > /dev/null 2>&1
 (echo $PASSWORD3; echo $PASSWORD3) | smbpasswd -a -s $USER3 > /dev/null 2>&1
-userdel -fr $USER4
+userdel -fr $USER4 > /dev/null 2>&1
 useradd -u $UID4 $USER4
 smbpasswd -x $USER4 > /dev/null 2>&1
 (echo $PASSWORD4; echo $PASSWORD4) | smbpasswd -a -s $USER4 > /dev/null 2>&1
