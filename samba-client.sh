@@ -1,11 +1,13 @@
 #!/bin/bash
 # Create samba client as per user defined config options
 # User inputs
+
+SERVERIP="172.31.26.53"
+
 LOCALDIR1="/myshare1"
 LOCALDIR2="/myshare2"
 LOCALDIR3="/myshare3"
 LOCALDIR4="/myshare4"
-SERVERIP="172.31.16.125"
 SAMBASHARE1="share1"
 SAMBASHARE2="share2"
 SAMBASHARE3="share3"
@@ -59,18 +61,18 @@ echo "Installing packages ..........."
 yum install -y -q -e0 $PACKAGES
 echo "Done"
 
-groupdel $GROUP1
+groupdel $GROUP1 > /dev/null 2>&1
 groupadd -g $GID1 $GROUP1
-userdel -fr $USER1
+userdel -fr $USER1 > /dev/null 2>&1
 useradd -u $UID1 $USER1 -G $GROUP1
 echo $PASSWORD1 | passwd --stdin $USER1 > /dev/null 2>&1
-userdel -fr $USER2
+userdel -fr $USER2 > /dev/null 2>&1
 useradd -u $UID2 $USER2
 echo $PASSWORD2 | passwd --stdin $USER2 > /dev/null 2>&1
-userdel -fr $USER3
+userdel -fr $USER3 > /dev/null 2>&1
 useradd -u $UID3 $USER3 -G $GROUP1
 echo $PASSWORD3| passwd --stdin $USER3 > /dev/null 2>&1
-userdel -fr $USER4
+userdel -fr $USER4 > /dev/null 2>&1
 useradd -u $UID4 $USER4
 echo $PASSWORD4 | passwd --stdin $USER4 > /dev/null 2>&1
 
