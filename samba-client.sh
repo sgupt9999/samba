@@ -25,7 +25,6 @@ PASSWORD4="redhat4"
 GROUP1="team"
 GID1="1020"
 CREDENTIALSFILE="/etc/samba/creds.txt"
-
 # End of user inputs
 
 
