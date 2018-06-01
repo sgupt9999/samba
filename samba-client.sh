@@ -2,7 +2,7 @@
 # Create samba client as per user defined config options
 # User inputs
 
-SERVERIP="172.31.26.53"
+SERVERIP="172.31.29.204"
 
 LOCALDIR1="/myshare1"
 LOCALDIR2="/myshare2"
@@ -35,6 +35,10 @@ if [[ $EUID != 0 ]]
 then
 	echo "Error. you need to have root privileges to run this script"
 	exit 1
+else
+	echo "This script will install SAMBA client utilities"
+	echo "The script will also create 4 test users and 1 test group"
+	echo "It will also create 4 different mount points based on different config specs"
 fi
 
 PACKAGES="samba-client cifs-utils nfs-utils"
@@ -96,4 +100,8 @@ echo "//$SERVERIP/$SAMBASHARE2 $LOCALDIR2 cifs  _netdev,username=$USER2,password
 echo "//$SERVERIP/$SAMBASHARE3 $LOCALDIR3 cifs  _netdev,username=$USER3,password=$PASSWORD3 0 0" >> /etc/fstab
 echo "//$SERVERIP/$SAMBASHARE4 $LOCALDIR4 cifs  _netdev,credentials=$CREDENTIALSFILE 0 0" >> /etc/fstab
 
+mount -a
+
 echo "All mounts added to /etc/fstab"
+
+df -h
